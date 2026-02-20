@@ -1,5 +1,6 @@
 package com.narxoz.rpg.enemy;
-import com.narxoz.rpg.builder.*;
+
+import com.narxoz.rpg.builder.EnemyBuilder;
 import com.narxoz.rpg.combat.Ability;
 import com.narxoz.rpg.loot.LootTable;
 
@@ -23,17 +24,18 @@ public class BossEnemyBuilder implements EnemyBuilder {
     private boolean hasBreathAttack;
     private Integer wingspan;
 
-    @Override public EnemyBuilder setName(String name) { this.name = name; return this; }
-    @Override public EnemyBuilder setHealth(int health) { this.health = health; return this; }
-    @Override public EnemyBuilder setDamage(int damage) { this.damage = damage; return this; }
-    @Override public EnemyBuilder setDefense(int defense) { this.defense = defense; return this; }
-    @Override public EnemyBuilder setSpeed(int speed) { this.speed = speed; return this; }
-    @Override public EnemyBuilder setElement(String element) { this.element = element; return this; }
-    @Override public EnemyBuilder addAbility(Ability ability) { if (ability != null) abilities.add(ability); return this; }
-    @Override public EnemyBuilder setAbilities(List<Ability> abilities) { this.abilities = abilities != null ? new ArrayList<>(abilities) : new ArrayList<>(); return this; }
-    @Override public EnemyBuilder setLootTable(LootTable loot) { this.loot = loot; return this; }
-    @Override public EnemyBuilder setAI(String aiBehavior) { this.ai = aiBehavior; return this; }
+    @Override public BossEnemyBuilder setName(String name) { this.name = name; return this; }
+    @Override public BossEnemyBuilder setHealth(int health) { this.health = health; return this; }
+    @Override public BossEnemyBuilder setDamage(int damage) { this.damage = damage; return this; }
+    @Override public BossEnemyBuilder setDefense(int defense) { this.defense = defense; return this; }
+    @Override public BossEnemyBuilder setSpeed(int speed) { this.speed = speed; return this; }
+    @Override public BossEnemyBuilder setElement(String element) { this.element = element; return this; }
+    @Override public BossEnemyBuilder addAbility(Ability ability) { if (ability != null) abilities.add(ability); return this; }
+    @Override public BossEnemyBuilder setAbilities(List<Ability> abilities) { this.abilities = abilities != null ? new ArrayList<>(abilities) : new ArrayList<>(); return this; }
+    @Override public BossEnemyBuilder setLootTable(LootTable loot) { this.loot = loot; return this; }
+    @Override public BossEnemyBuilder setAI(String aiBehavior) { this.ai = aiBehavior; return this; }
 
+    @Override
     public BossEnemyBuilder addPhase(int phaseNumber, int healthThreshold) {
         phases.put(phaseNumber, healthThreshold);
         return this;
@@ -56,7 +58,6 @@ public class BossEnemyBuilder implements EnemyBuilder {
 
     @Override
     public Enemy build() {
-        // FACTORY METHOD: build() creates Enemy
         if (name == null || name.isBlank()) throw new IllegalStateException("Name required");
         if (health == null || health <= 0) throw new IllegalStateException("Health must be positive");
         if (damage == null) throw new IllegalStateException("Damage required");

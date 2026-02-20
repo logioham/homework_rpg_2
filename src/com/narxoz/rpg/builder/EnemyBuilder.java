@@ -18,4 +18,5 @@ public interface EnemyBuilder {
     EnemyBuilder setLootTable(LootTable loot);
     EnemyBuilder setAI(String aiBehavior);
     Enemy build();
+    EnemyBuilder addPhase(int phaseNumber, int healthThreshold);
 }

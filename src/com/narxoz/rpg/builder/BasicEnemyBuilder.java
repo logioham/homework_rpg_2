@@ -29,6 +29,10 @@ public class BasicEnemyBuilder implements EnemyBuilder {
     @Override public EnemyBuilder setAbilities(List<Ability> abilities) { this.abilities = abilities != null ? new ArrayList<>(abilities) : new ArrayList<>(); return this; }
     @Override public EnemyBuilder setLootTable(LootTable loot) { this.loot = loot; return this; }
     @Override public EnemyBuilder setAI(String aiBehavior) { this.ai = aiBehavior; return this; }
+    @Override
+    public EnemyBuilder addPhase(int phaseNumber, int healthThreshold) {
+        return this;
+    }
 
     @Override
     public Enemy build() {
@@ -48,5 +52,6 @@ public class BasicEnemyBuilder implements EnemyBuilder {
             g.multiplyStats(mh);
         }
         return g;
+
     }
 }
