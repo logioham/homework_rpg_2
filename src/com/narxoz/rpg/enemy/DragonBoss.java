@@ -19,9 +19,9 @@ public class DragonBoss implements Enemy {
     private Map<Integer, Integer> phases;
     private LootTable lootTable;
     private String aiBehavior;
-    private boolean canFly;
-    private boolean hasBreathAttack;
-    private int wingspan;
+    boolean canFly;
+    boolean hasBreathAttack;
+    public int wingspan;
 
     DragonBoss(String name,
                int health,
