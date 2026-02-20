@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Goblin implements Enemy {
+public class Skeleton implements Enemy {
     private String name;
     private int health;
     private int damage;
@@ -20,12 +20,12 @@ public class Goblin implements Enemy {
     private LootTable lootTable;
     private Map<Integer, Integer> phases;
 
-    public Goblin(String name) {
+    public Skeleton(String name) {
         this.name = name;
-        this.health = 100;
-        this.damage = 15;
-        this.defense = 5;
-        this.speed = 35;
+        this.health = 120;
+        this.damage = 20;
+        this.defense = 10;
+        this.speed = 25;
         this.element = "NONE";
         this.aiBehavior = "BASIC";
         this.abilities = new ArrayList<>();
@@ -45,7 +45,7 @@ public class Goblin implements Enemy {
 
     @Override
     public void displayInfo() {
-        System.out.println("=== " + name + " (Goblin) ===");
+        System.out.println("=== " + name + " (Skeleton) ===");
         System.out.println("HP: " + health + " | DMG: " + damage + " | DEF: " + defense + " | SPD: " + speed);
         System.out.println("Element: " + element + " | AI: " + aiBehavior);
         System.out.println("Abilities (" + abilities.size() + "):");
@@ -74,7 +74,7 @@ public class Goblin implements Enemy {
 
     @Override
     public Enemy clone() {
-        Goblin copy = new Goblin(this.name);
+        Skeleton copy = new Skeleton(this.name);
         copy.health = this.health;
         copy.damage = this.damage;
         copy.defense = this.defense;
