@@ -5,13 +5,8 @@ import com.narxoz.rpg.loot.LootTable;
 
 import java.util.List;
 
-
 public interface EnemyComponentFactory {
-
+    List<Ability> createAbilities();
     LootTable createLootTable();
-
-    Ability createPrimaryAbility();
-    Ability createSecondaryAbility();
-    String getAIType();
-
+    String createAIBehavior();
 }
